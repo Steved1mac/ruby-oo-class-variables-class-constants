@@ -1,10 +1,20 @@
 class Shoe
   attr_accessor :color, :size, :material, :condition
   attr_reader :brand
+   BRANDS = [] 
+   @@all = []
 
   def initialize(brand)
     @brand = brand
-  end
+     if !BRANDS.include?(brand)
+      BRANDS << brand
+     end
+    @@all << self 
+    end
+
+    def self.all
+      @@all 
+    end 
 
   def cobble
     self.condition = "new"
